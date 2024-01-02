@@ -10,4 +10,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src")
     }
   },
+  server: {
+    port: 5555, // Change this port to the one you want to use
+  },
 })
