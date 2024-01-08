@@ -54,10 +54,10 @@ const searchStore = useSearchStore();
                 class="wrapper-buttons"
               >
                 <AppButton
-                    :label="searchStore.isInFavorites(movie) ? 'Favorite' : 'Add to favorites'"
-                    :color="searchStore.isInFavorites(movie) ? 'primary' : 'success'"
-                    :disabled="searchStore.isInFavorites(movie)"
-                    @click="searchStore.addToFavoriteMovies(movie)"
+                    :label="searchStore.isInFavorites(movie) ? 'Remove from favorites' : 'Add to favorites'"
+                    :color="searchStore.isInFavorites(movie) ? 'danger' : 'success'"
+                    :disabled="false"
+                    @click="searchStore.isInFavorites(movie) ? movieStore.deleteMovie(movie.id) : searchStore.addToFavoriteMovies(movie)"
                 />
             </div>
         </div>
