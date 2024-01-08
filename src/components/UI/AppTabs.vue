@@ -8,6 +8,10 @@ const props = defineProps({
         type: String,
         required: false
     },
+    color: {
+        type: String,
+        default: 'primary'
+    },
 })
 
 const emit = defineEmits(['changeTab'])
@@ -63,8 +67,8 @@ const clickOnTab = (tabName) => {
     }
     &-content {
       padding: 20px;
-      border-radius: 7px;
-      border: 1px solid #d31515;
+      border-radius: 10px;
+      border: 1px solid transparent;
       background: #fff;
     }
   }

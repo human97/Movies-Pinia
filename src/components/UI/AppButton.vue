@@ -43,14 +43,11 @@ const clickOnButton = () => {
 
 <template>
     <button 
-        :class="['btn', `btn_${color}`, {'btn_rounded': rounded}, {'btn_outlined': outlined}, {'btn_icon': icon}, {'btn_large': size === 'large'}, {'btn_medium': fixed === 'medium'}]"
+        :class="['btn', `btn_${color}`, {'btn_rounded': rounded}, {'btn_outlined': outlined}, {'btn_large': size === 'large'}, {'btn_medium': fixed === 'medium'}]"
         :disabled="disabled"
         @click="clickOnButton"
     >
-        <span v-if="icon">
-            <font-awesome-icon :icon="`fa-regular fa-${icon}`" />
-        </span>
-        <span v-else>{{ label }}</span>
+        <span>{{ label }}</span>
     </button>
 </template>
 
@@ -119,15 +116,6 @@ const clickOnButton = () => {
     &:hover {
       color: #fff;
     }
-  }
-  &_icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
   }
   &_large {
     height: 48px;

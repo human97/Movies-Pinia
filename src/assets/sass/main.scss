@@ -1,0 +1,22 @@
+@import '@/assets/sass/variables/fonts.scss';
+@import '@/assets/sass/variables/colors.scss';
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+body {
+    margin: 0;
+    background: #f9f9f9;
+    font-family: $font;
+  }
+  
+  .main {
+    max-width: 600px;
+    margin: auto;
+  }
