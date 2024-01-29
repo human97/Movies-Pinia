@@ -10,11 +10,20 @@ export const useSearchStore = defineStore("searchStore", () => {
 	const movieStore = useMovieStore()
 
 	const getMovies = async search => {
-		loading.value = true
-		const response = await fetch(`${url}${search}`)
-		const data = await response.json()
-		searchMovies.value = data.results
-		loading.value = false
+		try {
+			loading.value = true
+			const response = await fetch(`${url}${search}`)
+			if (!response.ok) {
+				throw new Error(`HTTP error! status: ${response.status}`)
+			}
+			const data = await response.json()
+			searchMovies.value = data.results
+		} catch (e) {
+			console.error(e)
+			searchMovies.value = []
+		} finally {
+			loading.value = false
+		}
 	}
 
     const searchCountMovies = computed(() => searchMovies.value.length);
